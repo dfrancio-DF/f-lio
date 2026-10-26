@@ -76,3 +76,7 @@ xvfb-run -a -s "-screen 0 1920x1200x24" /usr/bin/python3 tests/table_layout.py
 ## Remover a integração
 
 Remova `~/.local/bin/folio`, `~/.local/share/applications/io.github.folio.Reader.desktop` e `~/.local/share/icons/hicolor/scalable/apps/io.github.folio.Reader.svg`. A pasta do projeto e as preferências são independentes.
+
+## Licença
+
+Este projeto é distribuído sob a [licença MIT](LICENSE).
