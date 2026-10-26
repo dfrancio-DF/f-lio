@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src file: https: http:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Fólio — Markdown com calma</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Biblioteca">
+    <div class="brand"><img src="../assets/folio.svg" alt="" width="33" height="33"><span>Fólio<span class="brand-caption">UM ESPAÇO PARA LER</span></span></div>
+    <button class="open-button" data-action="open"><span data-icon="plus"></span>Abrir arquivo<span class="shortcut">Ctrl O</span></button>
+    <div class="library-label"><span>SEUS DOCUMENTOS</span><button class="icon-button tiny" data-action="clear-recent" title="Limpar arquivos recentes" aria-label="Limpar arquivos recentes"><span data-icon="eraser"></span></button></div>
+    <button class="welcome-item selected" data-action="welcome"><span data-icon="book"></span><span>Comece por aqui</span></button>
+    <nav id="recent" aria-label="Arquivos recentes"></nav>
+    <div class="sidebar-hint"><span data-icon="file"></span><p>Suas ideias, no seu computador.<br><span>Arraste um .md para esta janela.</span></p></div>
+    <div class="sidebar-footer"><span class="local-dot"></span>Local. Simples. Seu.<span class="version">v0.1</span></div>
+  </aside>
+
+  <main class="workspace">
+    <header class="toolbar">
+      <div class="breadcrumb"><button class="icon-button" data-action="focus" title="Alternar modo foco (Ctrl Shift F)" aria-label="Alternar modo foco"><span data-icon="panel"></span></button><span class="crumb-divider"></span><span data-icon="file"></span><span id="filename">Comece por aqui</span></div>
+      <div class="toolbar-actions">
+        <button class="icon-button focus-open" data-action="open" title="Abrir arquivo (Ctrl O)" aria-label="Abrir arquivo"><span data-icon="folder"></span></button>
+        <button class="icon-button" data-action="find" title="Buscar no documento (Ctrl F)" aria-label="Buscar no documento"><span data-icon="search"></span></button>
+        <span class="toolbar-divider"></span>
+        <button class="icon-button text-size" data-action="zoom-out" title="Diminuir texto (Ctrl -)" aria-label="Diminuir texto">A<span>−</span></button>
+        <button class="icon-button text-size" data-action="zoom-in" title="Aumentar texto (Ctrl +)" aria-label="Aumentar texto">A<span>+</span></button>
+        <span class="toolbar-divider"></span>
+        <button class="icon-button" id="theme-button" data-action="theme" title="Alternar tema" aria-label="Alternar tema"><span data-icon="moon"></span></button>
+        <button class="icon-button" data-action="menu" title="Opções e atalhos" aria-label="Opções e atalhos" aria-expanded="false" id="menu-button"><span data-icon="more"></span></button>
+      </div>
+    </header>
+    <div class="progress-track"><div id="reading-progress"></div></div>
+    <section class="find-bar" id="find-bar" aria-label="Busca no documento" hidden>
+      <span data-icon="search"></span><input id="find-input" type="search" placeholder="Buscar neste documento…" aria-label="Texto da busca" autocomplete="off"><span id="find-count"></span>
+      <button class="icon-button" data-action="find-previous" title="Resultado anterior" aria-label="Resultado anterior"><span data-icon="up"></span></button>
+      <button class="icon-button" data-action="find-next" title="Próximo resultado" aria-label="Próximo resultado"><span data-icon="down"></span></button>
+      <button class="icon-button" data-action="close-find" title="Fechar busca (Esc)" aria-label="Fechar busca"><span data-icon="close"></span></button>
+    </section>
+    <div id="options" class="options" hidden>
+      <div class="menu-caption">SEU JEITO DE LER</div>
+      <button data-action="focus"><span data-icon="maximize"></span>Modo foco<kbd>Ctrl ⇧ F</kbd></button>
+      <button data-action="zoom-reset"><span data-icon="type"></span>Restaurar texto<kbd>Ctrl 0</kbd></button>
+      <button data-action="reload"><span data-icon="refresh"></span>Recarregar arquivo<kbd>Ctrl R</kbd></button>
+      <button data-action="reveal"><span data-icon="folder"></span>Mostrar na pasta</button>
+      <div class="menu-separator"></div>
+      <button data-action="theme-system"><span data-icon="monitor"></span>Usar tema do sistema</button>
+      <button data-action="shortcuts"><span data-icon="keyboard"></span>Atalhos de teclado</button>
+    </div>
+    <div class="reading-layout">
+      <div class="reading-scroll" id="reading-scroll" tabindex="0" aria-label="Área de leitura">
+        <div class="document-shell">
+          <div class="document-overline"><span class="document-tag" id="document-tag">BOAS-VINDAS</span><span class="overline-dot">·</span><span id="reading-time">3 min de leitura</span></div>
+          <article id="document" class="markdown" aria-label="Documento Markdown"></article>
+          <footer class="document-footer"><span class="end-mark">❧</span><span>Você chegou ao fim.</span><button data-action="top">Voltar ao início ↑</button></footer>
+        </div>
+      </div>
+      <aside class="toc-panel" aria-label="Índice do documento"><div class="toc-heading">NESTA PÁGINA</div><nav id="toc"></nav><div class="toc-footer"><span id="word-count"></span><span id="live-status"><i></i> Leitura local</span></div></aside>
+    </div>
+    <footer class="statusbar"><button id="folder" data-action="reveal" title="Mostrar na pasta">Seu espaço de leitura</button><span id="status-right"><span class="status-dot"></span>Markdown, com calma.</span></footer>
+  </main>
+  <div id="toast" role="status" hidden></div>
+  <dialog id="shortcuts-dialog"><button class="icon-button dialog-close" data-action="close-shortcuts" aria-label="Fechar atalhos"><span data-icon="close"></span></button><span class="dialog-eyebrow">UM POUCO MAIS RÁPIDO</span><h2>Atalhos para sua leitura</h2><dl><div><dt>Abrir arquivo</dt><dd><kbd>Ctrl O</kbd></dd></div><div><dt>Buscar no documento</dt><dd><kbd>Ctrl F</kbd></dd></div><div><dt>Alternar modo foco</dt><dd><kbd>Ctrl Shift F</kbd></dd></div><div><dt>Aumentar / diminuir texto</dt><dd><kbd>Ctrl + / −</kbd></dd></div><div><dt>Restaurar tamanho</dt><dd><kbd>Ctrl 0</kbd></dd></div><div><dt>Recarregar arquivo</dt><dd><kbd>Ctrl R</kbd></dd></div><div><dt>Fechar busca / sair do foco</dt><dd><kbd>Esc</kbd></dd></div></dl></dialog>
+</body>
+</html>
