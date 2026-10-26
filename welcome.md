@@ -11,6 +11,7 @@ Uma interface discreta, inspirada na clareza do Outline. Tipografia confortável
 - **Abra do seu jeito** — arraste um `.md` para a janela, use o botão Abrir arquivo ou pressione `Ctrl + O`.
 - **Encontre o caminho** — navegue pelas seções usando o índice à direita.
 - **Continue escrevendo** — salve no seu editor e a leitura se atualiza automaticamente.
+- **Edite quando quiser** — abra um documento e clique em **Editar** para alterar o Markdown aqui mesmo. Salve e volte à leitura.
 - **Fique à vontade** — alterne o tema, ajuste o tamanho do texto ou entre no modo foco.
 
 ## Feito para o seu Markdown
@@ -33,6 +34,7 @@ def uma_boa_leitura(arquivo):
 | Busca no texto | Encontrar aquela passagem |
 | Arquivos recentes | Retomar a última leitura |
 | Modo foco | Só você e o conteúdo |
+| Edição opcional | Ajustar o Markdown sem sair do Fólio |
 
 ### Listas que acompanham suas ideias
 
@@ -45,6 +47,9 @@ def uma_boa_leitura(arquivo):
 | Atalho | Ação |
 | --- | --- |
 | `Ctrl + O` | Abrir arquivo |
+| `Ctrl + E` | Editar / voltar à leitura |
+| `Ctrl + S` / `Ctrl + Shift + S` | Salvar / salvar como, no editor |
+| `Ctrl + Z` / `Ctrl + Shift + Z` | Desfazer / refazer, no editor |
 | `Ctrl + F` | Buscar no documento |
 | `Ctrl + Shift + F` | Entrar ou sair do modo foco |
 | `Ctrl + +` / `Ctrl + -` | Ajustar tamanho do texto |

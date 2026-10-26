@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import tempfile
 
+os.environ["GDK_BACKEND"] = "x11"
 artifacts = Path(__file__).resolve().parents[1] / ".test-artifacts"
 artifacts.mkdir(exist_ok=True)
 temporary = tempfile.TemporaryDirectory(prefix="folio-smoke-", dir=artifacts)

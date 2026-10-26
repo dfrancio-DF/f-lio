@@ -24,6 +24,7 @@
       <div class="breadcrumb"><button class="icon-button" data-action="focus" title="Alternar modo foco (Ctrl Shift F)" aria-label="Alternar modo foco"><span data-icon="panel"></span></button><span class="crumb-divider"></span><span data-icon="file"></span><span id="filename">Comece por aqui</span></div>
       <div class="toolbar-actions">
         <button class="icon-button focus-open" data-action="open" title="Abrir arquivo (Ctrl O)" aria-label="Abrir arquivo"><span data-icon="folder"></span></button>
+        <button class="edit-button" id="edit-button" data-action="edit" title="Editar Markdown (Ctrl E)" disabled><span data-icon="edit"></span><span>Editar</span></button>
         <button class="icon-button" data-action="find" title="Buscar no documento (Ctrl F)" aria-label="Buscar no documento"><span data-icon="search"></span></button>
         <span class="toolbar-divider"></span>
         <button class="icon-button text-size" data-action="zoom-out" title="Diminuir texto (Ctrl -)" aria-label="Diminuir texto">A<span>−</span></button>
@@ -42,6 +43,7 @@
     </section>
     <div id="options" class="options" hidden>
       <div class="menu-caption">SEU JEITO DE LER</div>
+      <button data-action="edit"><span data-icon="edit"></span>Editar Markdown<kbd>Ctrl E</kbd></button>
       <button data-action="focus"><span data-icon="maximize"></span>Modo foco<kbd>Ctrl ⇧ F</kbd></button>
       <button data-action="zoom-reset"><span data-icon="type"></span>Restaurar texto<kbd>Ctrl 0</kbd></button>
       <button data-action="reload"><span data-icon="refresh"></span>Recarregar arquivo<kbd>Ctrl R</kbd></button>
@@ -63,6 +65,6 @@
     <footer class="statusbar"><button id="folder" data-action="reveal" title="Mostrar na pasta">Seu espaço de leitura</button><span id="status-right"><span class="status-dot"></span>Markdown, com calma.</span></footer>
   </main>
   <div id="toast" role="status" hidden></div>
-  <dialog id="shortcuts-dialog"><button class="icon-button dialog-close" data-action="close-shortcuts" aria-label="Fechar atalhos"><span data-icon="close"></span></button><span class="dialog-eyebrow">UM POUCO MAIS RÁPIDO</span><h2>Atalhos para sua leitura</h2><dl><div><dt>Abrir arquivo</dt><dd><kbd>Ctrl O</kbd></dd></div><div><dt>Buscar no documento</dt><dd><kbd>Ctrl F</kbd></dd></div><div><dt>Alternar modo foco</dt><dd><kbd>Ctrl Shift F</kbd></dd></div><div><dt>Aumentar / diminuir texto</dt><dd><kbd>Ctrl + / −</kbd></dd></div><div><dt>Restaurar tamanho</dt><dd><kbd>Ctrl 0</kbd></dd></div><div><dt>Recarregar arquivo</dt><dd><kbd>Ctrl R</kbd></dd></div><div><dt>Fechar busca / sair do foco</dt><dd><kbd>Esc</kbd></dd></div></dl></dialog>
+  <dialog id="shortcuts-dialog"><button class="icon-button dialog-close" data-action="close-shortcuts" aria-label="Fechar atalhos"><span data-icon="close"></span></button><span class="dialog-eyebrow">UM POUCO MAIS RÁPIDO</span><h2>Atalhos para sua leitura</h2><dl><div><dt>Abrir arquivo</dt><dd><kbd>Ctrl O</kbd></dd></div><div><dt>Editar / voltar à leitura</dt><dd><kbd>Ctrl E</kbd></dd></div><div><dt>Salvar / salvar como</dt><dd><kbd>Ctrl S / Ctrl Shift S</kbd></dd></div><div><dt>Desfazer / refazer, no editor</dt><dd><kbd>Ctrl Z / Ctrl Shift Z</kbd></dd></div><div><dt>Buscar no documento</dt><dd><kbd>Ctrl F</kbd></dd></div><div><dt>Alternar modo foco</dt><dd><kbd>Ctrl Shift F</kbd></dd></div><div><dt>Aumentar / diminuir texto</dt><dd><kbd>Ctrl + / −</kbd></dd></div><div><dt>Restaurar tamanho</dt><dd><kbd>Ctrl 0</kbd></dd></div><div><dt>Recarregar arquivo</dt><dd><kbd>Ctrl R</kbd></dd></div><div><dt>Fechar busca / sair do foco</dt><dd><kbd>Esc</kbd></dd></div></dl></dialog>
 </body>
 </html>

@@ -79,6 +79,9 @@ svg { width: 18px; height: 18px; display: block; flex-shrink: 0; }
 .crumb-divider, .toolbar-divider { width: 1px; height: 16px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
 .toolbar-actions { display: flex; align-items: center; gap: 3px; }
 .toolbar-actions svg { width: 16px; height: 16px; }
+.edit-button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; margin-right: 7px; color: var(--accent); background: var(--accent-bg); font-size: 11px; font-weight: 550; }
+.edit-button:disabled { color: var(--subtle); background: none; cursor: default; }
+.edit-button:disabled:hover { background: none; }
 .text-size { font-size: 14px; gap: 2px; font-family: Georgia, serif; }
 .text-size span { font-size: 11px; }
 .progress-track { height: 1px; background: var(--border); flex-shrink: 0; }
@@ -183,5 +186,5 @@ dialog dl > div:last-child { border: 0; }
 dialog dd { margin: 0; }
 @media (max-width: 1130px) { .toc-panel { display: none; } }
 @media (max-width: 800px) { .sidebar { width: 204px; padding-left: 12px; padding-right: 12px; } .sidebar-footer { margin-left: -12px; margin-right: -12px; padding-left: 18px; padding-right: 18px; } .document-shell { padding: 40px 30px; } .toolbar { padding: 0 13px; } .shortcut, .sidebar-hint { display: none; } .sidebar-footer { margin-top: auto; } .markdown h1 { font-size: 2em; } .toolbar-divider { margin: 0 1px; } }
-@media (max-width: 620px) { .sidebar { display: none; } .focus-open { display: inline-flex; } .breadcrumb > [data-icon], .crumb-divider { display: none; } .toolbar-actions { gap: 0; } .toolbar .icon-button { width: 28px; } .statusbar { padding: 0 15px; } #status-right { display: none; } #folder { max-width: 100%; } .find-bar { right: 8px; left: 8px; } .find-bar input { flex: 1; min-width: 0; width: 100px; } }
+@media (max-width: 620px) { .sidebar { display: none; } .focus-open { display: inline-flex; } .breadcrumb > [data-icon], .crumb-divider { display: none; } .toolbar-actions { gap: 0; } .toolbar .icon-button { width: 28px; } .edit-button { padding: 7px; margin-right: 2px; } .edit-button > span:last-child { display: none; } .statusbar { padding: 0 15px; } #status-right { display: none; } #folder { max-width: 100%; } .find-bar { right: 8px; left: 8px; } .find-bar input { flex: 1; min-width: 0; width: 100px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

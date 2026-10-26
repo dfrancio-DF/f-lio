@@ -48,6 +48,11 @@ class MarkdownTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", rendered)
         self.assertNotIn("<script>", rendered)
 
+    def test_incomplete_html_link_can_be_saved_and_rendered(self):
+        rendered = render_document('<a href="http://[">Rascunho</a>')["html"]
+        self.assertIn("Rascunho", rendered)
+        self.assertNotIn("href=", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()

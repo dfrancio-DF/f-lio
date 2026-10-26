@@ -49,7 +49,10 @@ class SafeHTML(HTMLParser):
                 if (key == "src" and tag != "img") or (key == "href" and tag != "a"):
                     continue
                 value = re.sub(r"[\x00-\x1f\x7f]", "", value).strip()
-                parsed = urlsplit(value)
+                try:
+                    parsed = urlsplit(value)
+                except ValueError:
+                    continue
                 if parsed.scheme.lower() not in {"", "http", "https", "file", "mailto"}:
                     continue
                 if key == "src" and parsed.scheme == "mailto":

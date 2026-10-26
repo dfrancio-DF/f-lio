@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import tempfile
 
+os.environ["GDK_BACKEND"] = "x11"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--document", type=Path)
 parser.add_argument("--baseline", action="store_true")

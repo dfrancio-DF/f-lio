@@ -19,6 +19,7 @@ const paths = {
   monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>',
   keyboard: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 15h10"/>',
   eraser: '<path d="m16 3 5 5a2 2 0 0 1 0 3l-9 10H7l-5-5a2 2 0 0 1 0-3L13 3a2 2 0 0 1 3 0zM6 10l9 9M12 21h10"/>',
+  edit: '<path d="m16 3 5 5M4 20l4-1L21 6a2 2 0 0 0-5-3L3 16l-1 6z"/>',
 };
 const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.file}</svg>`;
 document.querySelectorAll("[data-icon]").forEach(el => { el.innerHTML = icon(el.dataset.icon); });
@@ -85,6 +86,7 @@ function showDocument(data) {
   if (!data.path) state.welcome = data;
   $("document").innerHTML = data.html;
   $("filename").textContent = data.filename;
+  $("edit-button").disabled = !data.path;
   $("document-tag").textContent = data.path ? "DOCUMENTO MARKDOWN" : "BOAS-VINDAS";
   $("reading-time").textContent = `${data.minutes} min de leitura`;
   $("word-count").textContent = `${data.words.toLocaleString("pt-BR")} palavras`;
@@ -249,6 +251,7 @@ function action(name) {
   switch (name) {
     case "open": case "reload": case "clear-recent":
       bridge(name); break;
+    case "edit": closeFind(); bridge("edit"); break;
     case "find-next": moveMatch(1); break;
     case "find-previous": moveMatch(-1); break;
     case "reveal":
